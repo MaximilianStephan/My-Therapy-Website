@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <title>Your Name or Business</title>
-    <meta content="A brief description of your services or site." name="description">
-    <meta content="Your Name or Business" property="og:title">
-    <meta content="A brief description of your services or site." property="og:description">
+    <title>Maximilian Stephan, AMFT</title>
+	<link rel="icon" type="image/png" href="icon.png">
+    <meta content="Maximilian Stephan is an Associate Marriage and Family Therapist (AMFT) based in San Francisco, CA, specializing in children of divorce and video game addiction." name="description">
+    <meta content="Maximilian Stephan, AMFT" property="og:title">
+    <meta content="Associate Marriage and Family Therapist in San Francisco" property="og:description">
     <meta content="summary" name="twitter:card">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta name="theme-color" content="#fff8ef" />
+    <meta name="theme-color" content="#FAF3E3"/>
     <link rel="icon" href="logo.svg">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Libre+Baskerville:ital@0;1&family=Libre+Franklin:wght@700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Libre+Baskerville:ital@0;1&family=Libre+Franklin:wght@700&display=swap" rel="stylesheet">
 
     <style type="text/css">
         body {
-            background: #fff8ef;
-            color: #211C12;
+            background: #FAF3E3;
+            color: #2D3142;
             display: grid;
             grid-gap: 32px;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -41,8 +39,10 @@
             bottom: 80px;
             right: 80px;
             text-align: center;
-            filter: drop-shadow(0px 0px 1px rgba(228, 199, 116, 1)) drop-shadow(0px 3.9px 5.3px rgba(76, 43, 0, 0.038))
-                drop-shadow(0px 13px 17.9px rgba(76, 43, 0, 0.056)) drop-shadow(0px 58px 80px rgba(76, 43, 0, 0.1));
+            filter: drop-shadow(0px 0px 1px rgba(228, 199, 116, 1))
+                    drop-shadow(0px 3.9px 5.3px rgba(76, 43, 0, 0.038))
+                    drop-shadow(0px 13px 17.9px rgba(76, 43, 0, 0.056))
+                    drop-shadow(0px 58px 80px rgba(76, 43, 0, 0.1));
         }
 
         #call-to-action .inner {
@@ -54,13 +54,18 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(0, 0, 0, 0.025);
-            background: #ff8e72;
+            border: 1px solid rgba(0,0,0,0.025);
+            background: #3D5A80; /* Nice blue */
+            color: #fff; /* White text */
         }
 
-        #call-to-action a {
-            color: #af2401;
-            text-decoration: none;
+        #call-to-action p,
+        #call-to-action .inner em {
+            color: #fff;
+        }
+
+        #call-to-action a, #call-to-action #close {
+            color: #fff;
         }
 
         #call-to-action #close {
@@ -69,17 +74,13 @@
             font-weight: 400;
             font-size: 12px;
             line-height: 135%;
-            /* or 16px */
             text-decoration: none;
             cursor: pointer;
             position: absolute;
             bottom: 32px;
         }
 
-        #contact,
-        #categories,
-        figcaption p,
-        #education {
+        #contact, #categories, figcaption p, #education {
             grid-column-start: span 2;
             list-style-type: none;
             padding-inline-start: 0;
@@ -88,11 +89,9 @@
             font-weight: 400;
             font-size: 12px;
             line-height: 135%;
-            /* or 16px */
         }
 
-        figcaption p,
-        #education li {
+        figcaption p, #education li {
             margin-bottom: 16px;
         }
 
@@ -105,10 +104,11 @@
 
         #categories li {
             white-space: nowrap;
-            border: 1px solid #211C12;
+            border: 1px solid #4F5D75;
             border-radius: 3px;
             padding: 2px 6px 1px 6px;
             margin: 0 6px 6px 0;
+            color: #4F5D75;
         }
 
         #avatar {
@@ -143,12 +143,11 @@
             font-weight: 400;
             font-size: 14px;
             line-height: 155%;
-            /* or 22px */
             margin: 0 0 16px 0;
         }
 
         a {
-            color: #ff5f39;
+            color: #3D5A80;
             text-decoration: none;
         }
 
@@ -231,7 +230,7 @@
                 justify-content: flex-end;
             }
 
-            figcaption p:last-of-type {
+            figcaption p:last-of-type{
                 margin-bottom: 0;
             }
 
@@ -255,56 +254,78 @@
                 right: 16px;
             }
         }
+#gentle-cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #3D5A80;
+  color: #fff;
+  text-align: center;
+  padding: 18px 0 16px 0;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 16px;
+  z-index: 1000;
+  box-shadow: 0 -2px 12px rgba(61,90,128,0.08);
+  letter-spacing: 0.01em;
+}
+#gentle-cta-bar strong {
+  color: #F6C28B;
+  font-weight: 700;
+}
+@media screen and (max-width: 750px) {
+  #gentle-cta-bar {
+    font-size: 14px;
+    padding: 14px 0 12px 0;
+  }
+}
+
     </style>
 </head>
-
 <body>
-    <img id="logo" src="logo.svg" alt="Your business or personal logo.">
+    <!-- <img id="logo" src="logo.svg" alt="Logo for Maximilian Stephan, Associate Marriage and Family Therapist."> -->
     <ul id="contact">
-        <li><strong>Your Name</strong></li>
-        <li>Your Profession or Tagline</li>
-        <li>Phone Number</li>
-        <li><a href="mailto:youremail@example.com">Email me</a></li>
+        <li><strong>Maximilian Stephan</strong></li>
+        <li>Marriage and Family Therapist Associate #[pending]</li>
+        <li>Supervised by Bradford Smallwood, LMFT #53056</li>
+        <li>contact@maxstephantherapy.com</li>
+	<li>(650)271-9367</li>
     </ul>
     <ul id="categories">
-        <li class="category">Service One</li>
-        <li class="category">Service Two</li>
-        <li class="category">Service Three</li>
-        <li class="category">Service Four</li>
-        <li class="category">Service Five</li>
+        <li class="category">Individual Counseling</li>
+        <li class="category">Children of Divorce</li>
+        <li class="category">Video Game Addiction</li>
+        <li class="category">Adolescents</li>
+	<li class="category">Life Transitions</li>
     </ul>
     <figure id="avatar">
-        <img src="avatar.jpg" alt="Your portrait or representative image.">
+        <img src="headshot2.jpg" alt="Portrait of Maximilian Stephan">
         <figcaption>
-            <p>Your credentials or a short tagline.</p>
+            <p>Marriage and Family Therapist Associate #[pending]</p>
         </figcaption>
     </figure>
 
-    <h1>Your Name is a [Your Profession] based in [Your Location]</h1>
-
+    <h1>Maximilian Stephan is a therapist based in San Francisco, CA</h1>
+    
     <div class="column">
-        <p>Welcome! This is a space to introduce yourself or your business. Share a brief overview of what you do, your values, or your mission.</p>
-        <p>Use this area to highlight your approach, philosophy, or the unique qualities you bring to your field.</p>
-        <p>Feel free to add more information about your background, your inspiration, or what clients can expect when working with you.</p>
+        <p>I support people through challenging and complex times in their lives. I specialize in working with children of divorce (of all ages), individuals struggling with video game and social media addiction, and "failure to launch" cases.</p>
+        <p>My clinical orientation is person-centered, grounded in psychodynamic principles and evidence-based practices. I strive to create a warm, empathetic, and collaborative space where clients feel heard and empowered to grow.</p>
+        <p>I hold a BSBA in Finance and Economics from the University of Pittsburgh (2021) and a MA in Counseling Psychology from Pacifica Graduate Institute (2025), with emphasis in Marriage and Family Therapy, Professional Clinical Counseling, and Depth Psychology.</p>
     </div>
     <div class="column">
-        <p>Share your experience, notable achievements, or a story that represents your work. This is also a great place for testimonials or client feedback.</p>
+        <p>Under the supervision of Bradford Smallwood, LMFT, I continue to refine my clinical skills and deepen my understanding of family systems, anger management, and individual development. My approach blends current research with compassionate care, tailored uniquely to each client’s needs.</p>
+    	<p>Outside of my work as a therapist I enjoy playing pickup basketball, a surf or skateboard session (depending on the weather!), and noodling around on the guitar. When the sun's set, I value time with friends and family, comedy in any form, or a good tv series.</p>
         <ul id="education">
-            <li>Degree or Certification One</li>
-            <li>Degree or Certification Two</li>
-            <li>Relevant Experience or Award</li>
+            <li>University of Pittsburgh - B.S. Finance and Economics, 2021</li>
+            <li>Pacifica Graduate Institute - M.A. Counseling Psychology, 2025</li>
         </ul>
     </div>
 
-    <div id="call-to-action">
-        <div class="inner">
-            <em>Interested in working together?</em>
-            <p><a href="tel:1234567890">Call</a>, <a href="sms:1234567890">text</a> or <a
-                    href="mailto:youremail@example.com">email</a> for more information or a free consultation.
-            </p>
-            <div id="close" onclick="this.parentNode.remove(); return false;">Dismiss</div>
-        </div>
-    </div>
-</body>
+    <div id="gentle-cta-bar">
+  <span>
+    Interested in working together? Email <strong>contact@maxstephantherapy.com</strong> or call/text <strong>(650) 271-9367</strong> for a free consultation.
+  </span>
+</div>
 
+</body>
 </html>

@@ -57,9 +57,8 @@
 
         #categories {
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
-            align-content: flex-start;
+            gap: 6px;
         }
 
         #categories li {
@@ -67,7 +66,6 @@
             border: 1px solid #4F5D75;
             border-radius: 3px;
             padding: 2px 6px 1px 6px;
-            margin: 0 6px 6px 0;
             color: #4F5D75;
         }
 
@@ -133,40 +131,30 @@
         /* MOBILE STYLING */
         @media screen and (max-width: 750px) {
             body {
-                padding: 32px 32px 140px 32px; /* extra bottom space for CTA bar */
+                display: block; /* stack everything vertically */
+                padding: 32px 16px 220px 16px; /* extra bottom padding for CTA */
             }
 
-            .column {
-                grid-column-start: span 2;
-                grid-row-start: auto;
-            }
-
-            #avatar {
-                grid-column-start: span 2;
-                grid-row-start: auto;
-                margin-bottom: 32px;
-            }
-
-            h1 {
-                grid-column-start: span 2;
-                grid-row-start: auto;
-                margin-bottom: 16px;
-            }
-
-            #categories {
-                grid-column-start: span 2;
-                grid-row-start: auto;
+            #contact, #categories, #education, .column, h1, #avatar {
+                grid-column: auto;
+                width: 100%;
                 margin-bottom: 24px;
             }
 
-            figcaption {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
+            #avatar img {
+                max-width: 160px;
+                margin: 0 auto 16px auto;
+                display: block;
             }
 
-            figcaption p:last-of-type{
-                margin-bottom: 0;
+            h1 {
+                font-size: 28px;
+                line-height: 36px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.6;
             }
         }
     </style>
@@ -205,7 +193,7 @@
         <p>My approach to therapy is person-centered and depth-oriented, drawing on psychodynamic principles and evidence-based practices. I aim to offer a steady, attuned presence—where reflection, growth, and meaningful change can unfold over time. I'm a Bay-Area native, familiar with the pressures of achievement-driven environments and the toll they can take on emotional well-being and identity.</p>
     </div>
     <div class="column">
-        <p>I hold a MA in Counseling Psychology from Pacifica Graduate Institute, with an emphasis in Marriage and Family Therapy, Professional Clinical Counseling, and Depth Psychology and a BSBA in Finance and Economics from the University of Pittsburgh. I currently see clients through the practice of Bradford Smallwood, LMFT, who specializes in working with adolescents, anger, identity, and major life transitions.</p>
+        <p>I hold a MA in Counseling Psychology from Pacifica Graduate Institute, with an emphasis in Marriage and Family Therapy, Professional Clinical Counseling, and Depth Psychology as well as a BSBA in Finance and Economics from the University of Pittsburgh. I currently see clients through the practice of Bradford Smallwood, LMFT, who specializes in working with adolescents, anger, identity, and major life transitions.</p>
         <p>Outside of therapy, I enjoy playing pickup basketball, a surf or skateboarding session (depending on the weather!), and playing around on the guitar. When the sun's set, I value time with friends and family, comedy in any form, or a good tv series.</p>
         <ul id="education">
             <li>Pacifica Graduate Institute - M.A. Counseling Psychology</li>

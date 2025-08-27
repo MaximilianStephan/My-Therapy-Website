@@ -21,13 +21,10 @@
         body {
             background: #FAF3E3;
             color: #2D3142;
-            display: grid;
-            grid-gap: 32px;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            padding: 64px;
             margin: 0;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            font-family: 'Libre Baskerville', serif;
         }
 
         a {
@@ -40,13 +37,36 @@
             color: #F6C28B;
         }
 
+        /* NAVIGATION BAR */
+        #nav-bar {
+            display: flex;
+            justify-content: center;
+            background: #FAF3E3;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        #nav-bar a {
+            margin: 0 16px;
+            font-family: 'Libre Franklin', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* MAIN CONTENT GRID */
+        #main-content {
+            display: grid;
+            grid-gap: 32px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            padding: 64px;
+        }
+
         #contact, #categories, figcaption p, #education {
             grid-column-start: span 2;
             list-style-type: none;
             padding-inline-start: 0;
             font-family: 'Courier Prime', monospace;
-            font-style: normal;
-            font-weight: 400;
             font-size: 12px;
             line-height: 135%;
         }
@@ -58,7 +78,7 @@
         #categories {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            align-content: flex-start;
         }
 
         #categories li {
@@ -66,6 +86,7 @@
             border: 1px solid #4F5D75;
             border-radius: 3px;
             padding: 2px 6px 1px 6px;
+            margin: 0 6px 6px 0;
             color: #4F5D75;
         }
 
@@ -85,7 +106,6 @@
         h1 {
             grid-column-start: span 4;
             font-family: 'Libre Franklin', sans-serif;
-            font-style: normal;
             font-weight: 700;
             font-size: 40px;
             line-height: 48px;
@@ -97,8 +117,6 @@
         p {
             max-width: 600px;
             font-family: 'Libre Baskerville', serif;
-            font-style: normal;
-            font-weight: 400;
             font-size: 14px;
             line-height: 155%;
             margin: 0 0 16px 0;
@@ -130,75 +148,95 @@
 
         /* MOBILE STYLING */
         @media screen and (max-width: 750px) {
-            body {
-                display: block; /* stack everything vertically */
-                padding: 32px 16px 220px 16px; /* extra bottom padding for CTA */
+            #main-content {
+                grid-template-columns: 1fr 1fr;
+                padding: 32px 32px 140px 32px;
             }
 
-            #contact, #categories, #education, .column, h1, #avatar {
-                grid-column: auto;
-                width: 100%;
-                margin-bottom: 24px;
+            .column {
+                grid-column-start: span 2;
+                grid-row-start: auto;
             }
 
-            #avatar img {
-                max-width: 160px;
-                margin: 0 auto 16px auto;
-                display: block;
+            #avatar {
+                grid-column-start: span 2;
+                grid-row-start: auto;
+                margin-bottom: 32px;
             }
 
             h1 {
-                font-size: 28px;
-                line-height: 36px;
+                grid-column-start: span 2;
+                grid-row-start: auto;
+                margin-bottom: 16px;
             }
 
-            p {
-                font-size: 16px;
-                line-height: 1.6;
+            #categories {
+                grid-column-start: span 2;
+                grid-row-start: auto;
+                margin-bottom: 24px;
+            }
+
+            figcaption {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+
+            figcaption p:last-of-type{
+                margin-bottom: 0;
             }
         }
     </style>
 </head>
 <body>
-    <ul id="contact">
-        <li><strong>Maximilian Stephan</strong></li>
-        <li>Marriage and Family Therapist Associate #155198</li>
-        <li>Supervised by <a href="https://bradfordsmallwood.com/theteam" target="_blank">Bradford Smallwood</a>, LMFT #53056</li>
-        <li>max@maxstephantherapy.com</li>
-        <li>(650)271-9367</li>
-        <li>4155 24th St.</li>
-        <li>San Francisco, CA 94114</li>
-    </ul>
-
-    <ul id="categories">
-        <li class="category">Individual Counseling</li>
-        <li class="category">Children of Divorce</li>
-        <li class="category">Video Game Addiction</li>
-        <li class="category">Social Media Addiction</li>
-        <li class="category">Adolescents</li>
-        <li class="category">Life Transitions</li>
-    </ul>
-
-    <figure id="avatar">
-        <img src="headshot2.jpg" alt="Portrait of Maximilian Stephan">
-        <figcaption>
-            <p>Marriage and Family Therapist Associate #155198</p>
-        </figcaption>
-    </figure>
-
-    <h1>Maximilian Stephan is a therapist based in San Francisco, CA</h1>
-    
-    <div class="column">
-        <p>I work with adults and teenagers who feel stuck, disconnected from themselves or others, or overwhelmed by emotion. My clients often include emerging adults navigating the challenges of launching into adulthood, adolescent and adult children of divorce, and individuals feeling stuck in patterns of video game or social media use that are getting in the way of their goals or relationships. I support people through difficult and complex transitions, helping them build emotional resilience, a stronger sense of self, and practical tools for change.</p>
-        <p>My approach to therapy is person-centered and depth-oriented, drawing on psychodynamic principles and evidence-based practices. I aim to offer a steady, attuned presence—where reflection, growth, and meaningful change can unfold over time. I'm a Bay-Area native, familiar with the pressures of achievement-driven environments and the toll they can take on emotional well-being and identity.</p>
+    <!-- NAVIGATION BAR -->
+    <div id="nav-bar">
+        <a href="index.html">Home</a>
+        <a href="therapy.html">Therapy</a>
     </div>
-    <div class="column">
-        <p>I hold a MA in Counseling Psychology from Pacifica Graduate Institute, with an emphasis in Marriage and Family Therapy, Professional Clinical Counseling, and Depth Psychology as well as a BSBA in Finance and Economics from the University of Pittsburgh. I currently see clients through the practice of Bradford Smallwood, LMFT, who specializes in working with adolescents, anger, identity, and major life transitions.</p>
-        <p>Outside of therapy, I enjoy playing pickup basketball, a surf or skateboarding session (depending on the weather!), and playing around on the guitar. When the sun's set, I value time with friends and family, comedy in any form, or a good tv series.</p>
-        <ul id="education">
-            <li>Pacifica Graduate Institute - M.A. Counseling Psychology</li>
-            <li>University of Pittsburgh - B.S. Finance and Economics</li>
+
+    <!-- MAIN CONTENT -->
+    <div id="main-content">
+        <ul id="contact">
+            <li><strong>Maximilian Stephan</strong></li>
+            <li>Marriage and Family Therapist Associate #155198</li>
+            <li>Supervised by <a href="https://bradfordsmallwood.com/theteam" target="_blank">Bradford Smallwood</a>, LMFT #53056</li>
+            <li>max@maxstephantherapy.com</li>
+            <li>(650)271-9367</li>
+            <li>4155 24th St.</li>
+            <li>San Francisco, CA 94114</li>
         </ul>
+
+        <ul id="categories">
+            <li class="category">Individual Counseling</li>
+            <li class="category">Children of Divorce</li>
+            <li class="category">Video Game Addiction</li>
+            <li class="category">Social Media Addiction</li>
+            <li class="category">Adolescents</li>
+            <li class="category">Life Transitions</li>
+        </ul>
+
+        <figure id="avatar">
+            <img src="headshot2.jpg" alt="Portrait of Maximilian Stephan">
+            <figcaption>
+                <p>Marriage and Family Therapist Associate #155198</p>
+            </figcaption>
+        </figure>
+
+        <h1>Maximilian Stephan is a therapist based in San Francisco, CA</h1>
+        
+        <div class="column">
+            <p>I work with adults and teenagers who feel stuck, disconnected from themselves or others, or overwhelmed by emotion. My clients often include emerging adults navigating the challenges of launching into adulthood, adolescent and adult children of divorce, and individuals feeling stuck in patterns of video game or social media use that are getting in the way of their goals or relationships. I support people through difficult and complex transitions, helping them build emotional resilience, a stronger sense of self, and practical tools for change.</p>
+            <p>My approach to therapy is person-centered and depth-oriented, drawing on psychodynamic principles and evidence-based practices. I aim to offer a steady, attuned presence—where reflection, growth, and meaningful change can unfold over time. As a Bay Area native, I'm familiar with the pressures of achievement-driven environments and the toll they can take on emotional well-being and identity.</p>
+        </div>
+        <div class="column">
+            <p>I hold a MA in Counseling Psychology from Pacifica Graduate Institute, with an emphasis in Marriage and Family Therapy, Professional Clinical Counseling, and Depth Psychology and a BSBA in Finance and Economics from the University of Pittsburgh. I currently see clients through the practice of Bradford Smallwood, LMFT, who specializes in working with adolescents, anger, identity, and major life transitions.</p>
+            <p>Outside of therapy, I enjoy playing pickup basketball, a surf or skateboarding session (depending on the weather!), and playing around on the guitar. When the sun's set, I value time with friends and family, comedy in any form, or a good tv series.</p>
+            <ul id="education">
+                <li>Pacifica Graduate Institute - M.A. Counseling Psychology</li>
+                <li>University of Pittsburgh - B.S. Finance and Economics</li>
+            </ul>
+        </div>
     </div>
 
     <div id="gentle-cta-bar">

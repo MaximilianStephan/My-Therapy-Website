@@ -33,6 +33,7 @@
             text-decoration: none;
             font-weight: bold;
         }
+
         a:hover {
             text-decoration: underline;
             color: #F6C28B;
@@ -115,6 +116,17 @@
             max-width: 1200px;
         }
 
+        h2 {
+            grid-column-start: span 4;
+            font-family: 'Libre Franklin', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 28px;
+            margin: 8px 0 16px 0;
+             max-width: 1200px;
+             color: #4F5D75;
+        }
+
         p {
             max-width: 600px;
             font-family: 'Libre Baskerville', serif;
@@ -143,9 +155,36 @@
             letter-spacing: 0.01em;
         }
         #gentle-cta-bar strong {
-            color: #F6C28B;
             font-weight: 700;
         }
+
+        /* CTA BAR LINKS + COPY EMAIL VISIBILITY FIX */
+#gentle-cta-bar a,
+#gentle-cta-bar .copy-email {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#gentle-cta-bar a:hover,
+#gentle-cta-bar .copy-email:hover {
+  color: #F6C28B;
+}
+
+/* COPY-TO-CLIPBOARD EMAIL (GLOBAL) */
+.copy-email {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #3D5A80;
+  user-select: none;
+  white-space: nowrap;
+
+}
+
+.copy-email:hover {
+  color: #F6C28B;
+}
+
 
         /* MOBILE STYLING */
         @media screen and (max-width: 750px) {
@@ -168,6 +207,11 @@
             h1 {
                 grid-column-start: span 2;
                 grid-row-start: auto;
+                margin-bottom: 16px;
+            }
+            
+            h2 {
+                grid-column-start: span 2;
                 margin-bottom: 16px;
             }
 
@@ -202,15 +246,26 @@
             <li><strong>Maximilian Stephan</strong></li>
             <li>Marriage and Family Therapist Associate #155198</li>
             <li>Supervised by <a href="https://bradfordsmallwood.com/theteam" target="_blank">Bradford Smallwood</a>, LMFT #53056</li>
-            <li>max@maxstephantherapy.com</li>
-            <li>(650)271-9367</li>
+            <li>
+                <span
+  class="copy-email"
+  data-email="max@maxstephantherapy.com"
+  role="button"
+  tabindex="0"
+  aria-label="Copy email address to clipboard"
+  title="Click to copy email">
+                    max@maxstephantherapy.com
+                </span>
+            </li>
+            <li><a href="tel:+16502719367">(650) 271-9367</a></li>
             <li>4155 24th St.</li>
             <li>San Francisco, CA 94114</li>
         </ul>
 
         <ul id="categories">
-            <li class="category">Adolescents</li>
-            <li class="category">Individual Counseling</li>
+            <li class="category">Adolescent Boys</li>
+            <li class="category">Young Men</li>
+            <li class="category">Emerging Adults</li>
             <li class="category">Children of Divorce</li>
             <li class="category">Video Game Addiction</li>
             <li class="category">Social Media Addiction</li>
@@ -224,15 +279,17 @@
             </figcaption>
         </figure>
 
-        <h1>Maximilian Stephan is a therapist based in San Francisco, CA</h1>
-        
+        <h1>Therapy for boys, young men, and emerging adults navigating identity, relationships, and modern pressures</h1>
+        <h2>Adolescent, teenage, and young adult therapy in San Francisco</h2>
+
         <div class="column">
-            <p>I work with adults and teenagers who feel stuck, disconnected from themselves or others, or overwhelmed by emotion. My clients often include emerging adults navigating the challenges of launching into adulthood, adolescent and adult children of divorce, and individuals feeling stuck in patterns of video game or social media use that are getting in the way of their goals or relationships. I support people through difficult and complex transitions, helping them build emotional resilience, a stronger sense of self, and practical tools for change.</p>
+            <p>I work with adolescent and teenage boys, young men, and emerging adults in San Francisco who are feeling stuck, overwhelmed, or disconnected—from themselves, from others, or from a sense of direction. Often this shows up as anger or irritability, anxiety, sadness, withdrawal, or a loss of motivation, particularly during periods of family change, divorce, grief or loss, or major life transitions.</p>
+            <p>I also support individuals and families when video game or social media use begins to interfere with emotional well-being, school, work, or relationships. In therapy, we slow things down, make sense of what’s happening beneath the surface, and work toward greater emotional resilience, self-understanding, and meaningful connection.</p>
             <p>My approach to therapy is person-centered and depth-oriented, drawing on psychodynamic principles and evidence-based practices. I aim to offer a steady, attuned presence—where reflection, growth, and meaningful change can unfold over time. As a Bay Area native, I'm familiar with the pressures of achievement-driven environments and the toll they can take on emotional well-being and identity.</p>
         </div>
         <div class="column">
             <p>I hold a MA in Counseling Psychology from Pacifica Graduate Institute, with an emphasis in Marriage and Family Therapy, Professional Clinical Counseling, and Depth Psychology and a BSBA in Finance and Economics from the University of Pittsburgh. I currently see clients through the practice of Bradford Smallwood, LMFT, who specializes in working with adolescents, anger, identity, and major life transitions.</p>
-            <p>Outside of therapy, I enjoy playing pickup basketball, a surf or skateboarding session (depending on the weather!), and sitting down to enjoy listening to some good music. When the sun's set, I value time with friends and family, comedy in any form, or a good tv series.</p>
+            <p>Outside of therapy, I enjoy playing pickup basketball, a surf or skateboarding session (depending on the weather!), and sitting down to listen to some good music. When the sun's set, I value time with friends and family, comedy in any form, or a good tv series.</p>
             <ul id="education">
                 <li>Pacifica Graduate Institute - M.A. Counseling Psychology</li>
                 <li>University of Pittsburgh - B.S. Finance and Economics</li>
@@ -242,8 +299,72 @@
 
     <div id="gentle-cta-bar">
         <span>
-            Interested in working together? Email <strong>max@maxstephantherapy.com</strong> or call/text <strong>(650) 271-9367</strong> to schedule a free consultation.
-        </span>
+  Interested in working together? Email
+  <strong>
+    <span
+  class="copy-email"
+  data-email="max@maxstephantherapy.com"
+  role="button"
+  tabindex="0"
+  aria-label="Copy email address to clipboard"
+  title="Click to copy email">
+      max@maxstephantherapy.com
+    </span>
+  </strong>
+  or call/text
+  <strong><a href="tel:+16502719367">(650) 271-9367</a></strong>
+  to schedule a free consultation.
+</span>
+
     </div>
+<script>
+  (function () {
+    const els = document.querySelectorAll(".copy-email");
+    if (!els.length) return;
+
+    function attachCopyHandler(el) {
+      const email = el.getAttribute("data-email") || el.textContent.trim();
+      const original = el.textContent.trim();
+
+      function flash(msg) {
+        el.textContent = msg;
+        setTimeout(() => {
+          el.textContent = original;
+        }, 1200);
+      }
+
+      async function copy() {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(email);
+            flash("copied");
+          } else {
+            // Fallback: select text so user can copy manually (⌘C)
+            const range = document.createRange();
+            range.selectNodeContents(el);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            flash("select + copy (⌘C)");
+          }
+        } catch (e) {
+          flash("select + copy (⌘C)");
+        }
+      }
+
+      el.addEventListener("click", copy);
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          copy();
+        }
+      });
+    }
+
+    els.forEach(attachCopyHandler);
+  })();
+</script>
+
+
 </body>
 </html>

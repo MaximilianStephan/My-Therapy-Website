@@ -46,9 +46,6 @@
   user-select: none;
   white-space: nowrap;
 
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
 }
 
 .copy-email:hover{
@@ -56,13 +53,18 @@
 }
 
 /* CTA BAR LINKS + COPY EMAIL VISIBILITY FIX */
-#gentle-cta-bar a,
+#gentle-cta-bar a {
+  color: #fff;
+}
+
+#gentle-cta-bar a:hover {
+  color: #F6C28B;
+}
+
 #gentle-cta-bar .copy-email {
   color: #fff;
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
 }
+
 
 #gentle-cta-bar a:hover,
 #gentle-cta-bar .copy-email:hover {
@@ -85,6 +87,13 @@
             font-family: 'Libre Franklin', sans-serif;
             font-weight: 700;
             font-size: 16px;
+
+            text-decoration: none;
+        }
+        
+        #nav-bar a:hover {
+            text-decoration: none; /* keep it off */
+            color: #F6C28B;        /* you already like this hover color */
         }
 
         /* MAIN CONTENT LAYOUT */
@@ -171,6 +180,17 @@
                 height: 150px;
             }
         }
+
+        /* Remove underline from phone numbers */
+a[href^="tel:"] {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+a[href^="tel:"]:hover {
+  text-decoration: none;
+}
+
     </style>
 </head>
 

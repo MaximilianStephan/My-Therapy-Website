@@ -37,6 +37,33 @@
             color: #F6C28B;
         }
 
+        /* COPY-TO-CLIPBOARD EMAIL (GLOBAL) */
+.copy-email {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #3D5A80;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.copy-email:hover {
+  color: #F6C28B;
+}
+
+/* CTA BAR LINKS + COPY EMAIL VISIBILITY FIX */
+#gentle-cta-bar a,
+#gentle-cta-bar .copy-email {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#gentle-cta-bar a:hover,
+#gentle-cta-bar .copy-email:hover {
+  color: #F6C28B;
+}
+
+
         /* NAVIGATION BAR */
         #nav-bar {
             display: flex;
@@ -118,7 +145,6 @@
             letter-spacing: 0.01em;
         }
         #gentle-cta-bar strong {
-            color: #F6C28B;
             font-weight: 700;
         }
 
@@ -141,6 +167,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- NAVIGATION BAR -->
     <div id="nav-bar">
@@ -163,7 +190,7 @@
             <p>Divorce can leave lasting ripples, whether you’re an adolescent caught between parents, or an adult still carrying the impact years later. I help clients make sense of those experiences, navigate complicated family dynamics, and begin to heal the wounds of feeling split or unseen. Together, we work on building a stronger sense of self and healthier relationships moving forward.</p>
 
             <h2>Video Game and Social Media Addiction</h2>
-            <p>Does it feel like you’ve lost your child to video games? Or like you’re losing your own time and life to them? Gaming can be fun and social, but when it starts to take over, it can hurt school, work, relationships, and self-esteem. In therapy, we’ll look at what’s driving the pull to escape into games identify other ways to cope, connect, and create balance. The goal isn’t just less screen time, it’s building a fuller, more satisfying life offline.</p>
+            <p>Does it feel like you’ve lost your child to video games? Or like you’re losing your own time and life to them? Gaming can be fun and social, but when it starts to take over, it can hurt school, work, relationships, and self-esteem. In therapy, we’ll look at what’s driving the pull to escape into games, identify other ways to cope, connect, and create balance. The goal isn’t just less screen time, it’s building a fuller, more satisfying life offline.</p>
             <p>Similarly, does scrolling leave you feeling drained, anxious, or like life is slipping by while you’re stuck on your phone? Social media can help us connect, but when it starts taking over, it can hurt confidence, relationships, and peace of mind. In therapy, we’ll explore what’s driving the endless scroll, and work on ways to set healthier boundaries, rebuild presence of mind, and feel more grounded in your daily life.</p>
 
             <h2>Life Transitions</h2>
@@ -180,8 +207,70 @@
 
     <div id="gentle-cta-bar">
         <span>
-            Interested in working together? Email <strong>max@maxstephantherapy.com</strong> or call/text <strong>(650) 271-9367</strong> to schedule a free consultation.
-        </span>
+  Interested in working together? Email
+  <strong>
+    <span
+      class="copy-email"
+      data-email="max@maxstephantherapy.com"
+      role="button"
+      tabindex="0"
+      aria-label="Copy email address to clipboard"
+      title="Click to copy email">
+      max@maxstephantherapy.com
+    </span>
+  </strong>
+  or call/text
+  <strong><a href="tel:+16502719367">(650) 271-9367</a></strong>
+  to schedule a free consultation.
+</span>
+
     </div>
+<script>
+  (function () {
+    const els = document.querySelectorAll(".copy-email");
+    if (!els.length) return;
+
+    function attachCopyHandler(el) {
+      const email = el.getAttribute("data-email") || el.textContent.trim();
+      const original = el.textContent.trim();
+
+      function flash(msg) {
+        el.textContent = msg;
+        setTimeout(() => {
+          el.textContent = original;
+        }, 1200);
+      }
+
+      async function copy() {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(email);
+            flash("copied");
+          } else {
+            const range = document.createRange();
+            range.selectNodeContents(el);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            flash("select + copy (⌘C)");
+          }
+        } catch (e) {
+          flash("select + copy (⌘C)");
+        }
+      }
+
+      el.addEventListener("click", copy);
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          copy();
+        }
+      });
+    }
+
+    els.forEach(attachCopyHandler);
+  })();
+</script>
+
 </body>
 </html>

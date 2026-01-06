@@ -162,11 +162,8 @@
 #gentle-cta-bar a,
 #gentle-cta-bar .copy-email {
   color: #fff;
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-decoration: underline;
 }
-
 
 #gentle-cta-bar a:hover,
 #gentle-cta-bar .copy-email:hover {
@@ -174,22 +171,22 @@
 }
 
 /* COPY-TO-CLIPBOARD EMAIL (GLOBAL) */
-.copy-email{
-  display: inline-block;
+.copy-email {
+    text-underline-offset: 2px;
+    display: inline-block;
   cursor: pointer;
+  text-decoration: underline;
   font-weight: bold;
   color: #3D5A80;
   user-select: none;
   white-space: nowrap;
 
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
 }
 
-.copy-email:hover{
+.copy-email:hover {
   color: #F6C28B;
 }
+
 
         /* MOBILE STYLING */
         @media screen and (max-width: 750px) {

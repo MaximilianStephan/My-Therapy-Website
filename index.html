@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +42,8 @@
         #nav-bar {
             display: flex;
             justify-content: center;
+            align-items: center;
+            gap: 8px;
             background: #FAF3E3;
             padding: 16px 0;
             position: sticky;
@@ -50,44 +51,80 @@
             z-index: 1000;
         }
         #nav-bar a {
-            margin: 0 16px;
             font-family: 'Libre Franklin', sans-serif;
             font-weight: 700;
-            font-size: 16px;
-
+            font-size: 14px;
+            text-decoration: none;
+            color: #4F5D75;
+            background: transparent;
+            border: 1px solid #4F5D75;
+            border-radius: 999px;
+            padding: 4px 14px;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+        #nav-bar a:hover {
+            background: #4F5D75;
+            color: #FAF3E3;
             text-decoration: none;
         }
-        
-        #nav-bar a:hover {
-            text-decoration: none; /* keep it off */
-            color: #F6C28B;        /* you already like this hover color */
+        .nav-divider {
+            display: none;
         }
 
         /* MAIN CONTENT GRID */
         #main-content {
             display: grid;
             grid-gap: 32px;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            padding: 64px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            padding: 64px 64px 140px 64px;
+            
+            margin: 0 auto;
         }
 
-        #contact, #categories, figcaption p, #education {
-            grid-column-start: span 2;
+        /* ROW 1: photo | contact info */
+        #avatar {
+            grid-column: span 2;
+            margin: 0;
+        }
+
+        #avatar img {
+            max-width: 100%;
+            max-height: 400px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 16px;
+            display: block;
+            mix-blend-mode: multiply;
+        }
+
+        #contact {
+            grid-column: span 2;
             list-style-type: none;
             padding-inline-start: 0;
+            margin: 0;
             font-family: 'Courier Prime', monospace;
             font-size: 12px;
             line-height: 135%;
         }
 
-        figcaption p, #education li {
-            margin-bottom: 16px;
+        #contact li {
+            margin-bottom: 6px;
         }
 
+        /* ROW 2: categories */
         #categories {
+            grid-column: span 4;
+            list-style-type: none;
+            padding-inline-start: 0;
+            margin: 0;
+            font-family: 'Courier Prime', monospace;
+            font-size: 12px;
+            line-height: 135%;
             display: flex;
             flex-wrap: wrap;
-            align-content: flex-start;
+            align-items: center;
+            gap: 6px;
         }
 
         #categories li {
@@ -95,25 +132,12 @@
             border: 1px solid #4F5D75;
             border-radius: 3px;
             padding: 2px 6px 1px 6px;
-            margin: 0 6px 6px 0;
             color: #4F5D75;
         }
 
-        #avatar {
-            grid-column-start: span 1;
-            grid-row-start: span 3;
-            margin: 0;
-        }
-
-        #avatar img {
-            max-width: 100%;
-            border-radius: 16px;
-            margin-bottom: 16px;
-            mix-blend-mode: multiply;
-        }
-
+        /* HEADING ROW */
         h1 {
-            grid-column-start: span 4;
+            grid-column: span 4;
             font-family: 'Libre Franklin', sans-serif;
             font-weight: 700;
             font-size: 40px;
@@ -124,14 +148,14 @@
         }
 
         h2 {
-            grid-column-start: span 4;
+            grid-column: span 4;
             font-family: 'Libre Franklin', sans-serif;
             font-weight: 700;
             font-size: 20px;
             line-height: 28px;
             margin: 8px 0 16px 0;
-             max-width: 1200px;
-             color: #4F5D75;
+            max-width: 1200px;
+            color: #4F5D75;
         }
 
         p {
@@ -143,9 +167,26 @@
         }
 
         .column {
-            grid-column-start: span 2;
+            grid-column: span 2;
         }
 
+        .column:first-of-type {
+            grid-column: span 2;
+        }
+
+        #education {
+            list-style-type: none;
+            padding-inline-start: 0;
+            font-family: 'Courier Prime', monospace;
+            font-size: 12px;
+            line-height: 135%;
+        }
+
+        #education li {
+            margin-bottom: 16px;
+        }
+
+        /* CTA BAR */
         #gentle-cta-bar {
             position: fixed;
             bottom: 0;
@@ -165,40 +206,41 @@
             font-weight: 700;
         }
 
-        /* CTA BAR LINKS + COPY EMAIL VISIBILITY FIX */
-#gentle-cta-bar a {
-  color: #fff;
-}
+        #gentle-cta-bar a {
+            color: #fff;
+        }
+        #gentle-cta-bar a:hover {
+            color: #F6C28B;
+        }
+        #gentle-cta-bar .copy-email {
+            color: #fff;
+        }
+        #gentle-cta-bar a:hover,
+        #gentle-cta-bar .copy-email:hover {
+            color: #F6C28B;
+        }
 
-#gentle-cta-bar a:hover {
-  color: #F6C28B;
-}
+        /* COPY-TO-CLIPBOARD EMAIL */
+        .copy-email {
+            display: inline-block;
+            cursor: pointer;
+            font-weight: bold;
+            color: #3D5A80;
+            user-select: none;
+            white-space: nowrap;
+        }
+        .copy-email:hover {
+            color: #F6C28B;
+        }
 
-#gentle-cta-bar .copy-email {
-  color: #fff;
-}
-
-
-
-#gentle-cta-bar a:hover,
-#gentle-cta-bar .copy-email:hover {
-  color: #F6C28B;
-}
-
-/* COPY-TO-CLIPBOARD EMAIL (GLOBAL) */
-.copy-email{
-  display: inline-block;
-  cursor: pointer;
-  font-weight: bold;
-  color: #3D5A80;
-  user-select: none;
-  white-space: nowrap;
-
-}
-
-.copy-email:hover{
-  color: #F6C28B;
-}
+        /* Remove underline from phone numbers */
+        a[href^="tel:"] {
+            text-decoration: none;
+            border-bottom: none;
+        }
+        a[href^="tel:"]:hover {
+            text-decoration: none;
+        }
 
         /* MOBILE STYLING */
         @media screen and (max-width: 750px) {
@@ -207,55 +249,36 @@
                 padding: 32px 32px 140px 32px;
             }
 
-            .column {
-                grid-column-start: span 2;
-                grid-row-start: auto;
-            }
-
             #avatar {
-                grid-column-start: span 2;
-                grid-row-start: auto;
-                margin-bottom: 32px;
+                grid-column: span 2;
             }
 
-            h1 {
-                grid-column-start: span 2;
-                grid-row-start: auto;
-                margin-bottom: 16px;
-            }
-            
-            h2 {
-                grid-column-start: span 2;
-                margin-bottom: 16px;
+            #contact {
+                grid-column: span 2;
             }
 
             #categories {
-                grid-column-start: span 2;
-                grid-row-start: auto;
-                margin-bottom: 24px;
+                grid-column: span 2;
             }
 
-            figcaption {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
+            h1 {
+                grid-column: span 2;
+                margin-bottom: 16px;
             }
 
-            figcaption p:last-of-type{
-                margin-bottom: 0;
+            h2 {
+                grid-column: span 2;
+                margin-bottom: 16px;
+            }
+
+            .column {
+                grid-column: span 2;
+            }
+
+            .column:first-of-type {
+                grid-column: span 2;
             }
         }
-
-        /* Remove underline from phone numbers */
-a[href^="tel:"] {
-  text-decoration: none;
-  border-bottom: none;
-}
-
-a[href^="tel:"]:hover {
-  text-decoration: none;
-}
-
     </style>
 </head>
 <body>
@@ -268,18 +291,24 @@ a[href^="tel:"]:hover {
 
     <!-- MAIN CONTENT -->
     <div id="main-content">
+
+        <!-- TOP ROW: photo | contact | categories -->
+        <figure id="avatar">
+            <img src="hor couch smile arm 2.JPG" alt="Portrait of Maximilian Stephan">
+        </figure>
+
         <ul id="contact">
             <li><strong>Maximilian Stephan</strong></li>
             <li>Marriage and Family Therapist Associate #155198</li>
             <li>Supervised by <a href="https://bradfordsmallwood.com/theteam" target="_blank">Bradford Smallwood</a>, LMFT #53056</li>
             <li>
                 <span
-  class="copy-email"
-  data-email="max@maxstephantherapy.com"
-  role="button"
-  tabindex="0"
-  aria-label="Copy email address to clipboard"
-  title="Click to copy email">
+                    class="copy-email"
+                    data-email="max@maxstephantherapy.com"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Copy email address to clipboard"
+                    title="Click to copy email">
                     max@maxstephantherapy.com
                 </span>
             </li>
@@ -289,28 +318,23 @@ a[href^="tel:"]:hover {
         </ul>
 
         <ul id="categories">
-    <li class="category">Adolescents</li>
-    <li class="category">Young Adults</li>
-    <li class="category">Children of Divorce</li>
-    <li class="category">Anxiety & Anger</li>
-    <li class="category">Identity Development</li>
-    <li class="category">Video Game & Social Media Overuse</li>
-    <li class="category">Life Transitions</li>
-</ul>
+            <li class="category">Adolescents</li>
+            <li class="category">Young Adults</li>
+            <li class="category">Children of Divorce</li>
+            <li class="category">Anxiety &amp; Anger</li>
+            <li class="category">Identity Development</li>
+            <li class="category">Video Game &amp; Social Media Overuse</li>
+            <li class="category">Life Transitions</li>
+        </ul>
 
-        <figure id="avatar">
-            <img src="MS-Headshot-12-2k25.jpeg" alt="Portrait of Maximilian Stephan">
-            <figcaption>
-                <p>Marriage and Family Therapist Associate #155198</p>
-            </figcaption>
-        </figure>
-
+        <!-- HEADING -->
         <h1>Therapy for adolescents and adults navigating identity, relationships, and modern pressures</h1>
         <h2></h2>
 
+        <!-- TWO TEXT COLUMNS -->
         <div class="column">
             <p>I work with adolescents and adults in San Francisco who are feeling stuck, overwhelmed, or disconnected—from themselves, from others, or from a sense of direction. Often this shows up as anger or irritability, anxiety, sadness, withdrawal, or a loss of motivation, particularly during periods of familial change, divorce, grief or loss, or major life transitions.</p>
-            <p>I also support individuals when video game or social media use begins to interfere with emotional well-being, school, work, or relationships. In therapy, we slow things down, make sense of what’s happening beneath the surface, and work toward greater emotional resilience, self-understanding, and meaningful connection.</p>
+            <p>I also support individuals when video game or social media use begins to interfere with emotional well-being, school, work, or relationships. In therapy, we slow things down, make sense of what's happening beneath the surface, and work toward greater emotional resilience, self-understanding, and meaningful connection.</p>
             <p>My approach to therapy is person-centered and depth-oriented, drawing on psychodynamic principles and evidence-based practices. I aim to offer a steady, attuned presence—where reflection, growth, and meaningful change can unfold over time. As a Bay Area native, I'm familiar with the pressures of achievement-driven environments and the toll they can take on emotional well-being and identity.</p>
         </div>
         <div class="column">
@@ -321,76 +345,72 @@ a[href^="tel:"]:hover {
                 <li>University of Pittsburgh - B.S. Finance and Economics</li>
             </ul>
         </div>
+
     </div>
 
     <div id="gentle-cta-bar">
         <span>
-  Interested in working together? Email
-  <strong>
-    <span
-  class="copy-email"
-  data-email="max@maxstephantherapy.com"
-  role="button"
-  tabindex="0"
-  aria-label="Copy email address to clipboard"
-  title="Click to copy email">
-      max@maxstephantherapy.com
-    </span>
-  </strong>
-  or call/text
-  <strong><a href="tel:+16502719367">(650) 271-9367</a></strong>
-  to schedule a free consultation.
-</span>
-
+            Interested in working together? Email
+            <strong>
+                <span
+                    class="copy-email"
+                    data-email="max@maxstephantherapy.com"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Copy email address to clipboard"
+                    title="Click to copy email">
+                    max@maxstephantherapy.com
+                </span>
+            </strong>
+            or call/text
+            <strong><a href="tel:+16502719367">(650) 271-9367</a></strong>
+            to schedule a free consultation.
+        </span>
     </div>
-<script>
-  (function () {
-    const els = document.querySelectorAll(".copy-email");
-    if (!els.length) return;
 
-    function attachCopyHandler(el) {
-      const email = el.getAttribute("data-email") || el.textContent.trim();
-      const original = el.textContent.trim();
+    <script>
+        (function () {
+            const els = document.querySelectorAll(".copy-email");
+            if (!els.length) return;
 
-      function flash(msg) {
-        el.textContent = msg;
-        setTimeout(() => {
-          el.textContent = original;
-        }, 1200);
-      }
+            function attachCopyHandler(el) {
+                const email = el.getAttribute("data-email") || el.textContent.trim();
+                const original = el.textContent.trim();
 
-      async function copy() {
-        try {
-          if (navigator.clipboard && window.isSecureContext) {
-            await navigator.clipboard.writeText(email);
-            flash("copied");
-          } else {
-            // Fallback: select text so user can copy manually (⌘C)
-            const range = document.createRange();
-            range.selectNodeContents(el);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            flash("select + copy (⌘C)");
-          }
-        } catch (e) {
-          flash("select + copy (⌘C)");
-        }
-      }
+                function flash(msg) {
+                    el.textContent = msg;
+                    setTimeout(() => { el.textContent = original; }, 1200);
+                }
 
-      el.addEventListener("click", copy);
-      el.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          copy();
-        }
-      });
-    }
+                async function copy() {
+                    try {
+                        if (navigator.clipboard && window.isSecureContext) {
+                            await navigator.clipboard.writeText(email);
+                            flash("copied");
+                        } else {
+                            const range = document.createRange();
+                            range.selectNodeContents(el);
+                            const selection = window.getSelection();
+                            selection.removeAllRanges();
+                            selection.addRange(range);
+                            flash("select + copy (⌘C)");
+                        }
+                    } catch (e) {
+                        flash("select + copy (⌘C)");
+                    }
+                }
 
-    els.forEach(attachCopyHandler);
-  })();
-</script>
+                el.addEventListener("click", copy);
+                el.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        copy();
+                    }
+                });
+            }
 
-
+            els.forEach(attachCopyHandler);
+        })();
+    </script>
 </body>
 </html>
